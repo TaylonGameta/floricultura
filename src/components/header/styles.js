@@ -19,7 +19,7 @@ export const Tabs = styled.div`
         color: var(--font);
         margin-right: 20px;
         padding: 15px 0;
-        font-weight: bold;
+        height: 60px;
         font-size: 12px;
 
         &:hover{
@@ -46,7 +46,7 @@ export const Container = styled.div`
     >h1{
         font-size: 14px;
         color: var(--font);
-        margin-left: 10px;
+        margin-left: 5px;
         margin-right: auto;
         &:hover{
             cursor: pointer;

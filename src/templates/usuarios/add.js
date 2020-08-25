@@ -1,16 +1,16 @@
 import React from 'react';
 import Header from '../../components/header';
-import AddPartner from '../../components/addPartner';
 import Sidebar from '../../components/sidebar';
+import AddUser from '../../components/addUser';
 
 
-const Add = (props) => {
+const Add = () => {
+
     return(
         <>
-            
             <Sidebar></Sidebar>
-            <Header partner></Header>
-            <AddPartner></AddPartner>
+            <Header user></Header>
+            <AddUser></AddUser>
         </>
     );
 }

@@ -1,16 +1,19 @@
 import React from 'react';
 import Header from '../../components/header';
-import AddPartner from '../../components/addPartner';
 import Sidebar from '../../components/sidebar';
+import EditUser from '../../components/editUser';
+import queryString from 'query-string';
 
 
 const Add = (props) => {
+
+    const param = queryString.parse(props.location.search);
+    
     return(
         <>
-            
             <Sidebar></Sidebar>
             <Header partner></Header>
-            <AddPartner></AddPartner>
+            <EditUser id={param.id}></EditUser>
         </>
     );
 }

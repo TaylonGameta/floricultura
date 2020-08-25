@@ -47,11 +47,13 @@ export const Container = styled.div`
 
     >h3{
         padding: 2em 0;
-        font-size: 14px;
+        font-size: 16px;
+        font-weight: normal;
     }
 
     >h4{
-        font-size: 14px;
+        font-size: 16px;
+        font-weight: normal;
     }
 
     >button{
@@ -72,3 +74,4 @@ export const Container = styled.div`
     }
 
 `
+

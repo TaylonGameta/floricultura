@@ -7,7 +7,6 @@ const hideSidebar = () => {
     document.getElementById("sidebar").style.transition = "0.5s";
 }
 
-
 const Sidebar = () => {
     return (
         <Container id="sidebar">
@@ -17,8 +16,8 @@ const Sidebar = () => {
             </Header>
             <Main>
                 <h3>Usuários</h3>
-                <button><i className="fa fa-list"></i>Listar</button>
-                <button><i className="fa fa-plus"></i>Criar</button>
+                <button onClick={()=>window.location.hash = "usuarios/"}><i className="fa fa-list"></i>Listar</button>
+                <button onClick={()=>window.location.hash = "usuarios/add"}><i className="fa fa-plus"></i>Criar</button>
                 <h3>Associados</h3>
                 <button onClick={()=>window.location.hash = "associados/"}><i className="fa fa-list"></i>Listar</button>
                 <button onClick={()=>window.location.hash = "associados/add"}><i className="fa fa-plus"></i>Criar</button>

@@ -84,23 +84,3 @@ export const Description = styled.div`
         font-size: 16px;
     }
 `
-
-export const Redirect = styled.div`
-    background-color: white;
-    padding: 2em 0em;
-
-    >h2{
-        font-size: 16px;
-        color: var(--font);
-    }
-
-    >p{
-        padding: 2em 0em;
-        >a{
-            text-decoration: none;
-            &:hover{
-                text-decoration: underline;
-            }
-        }
-    }
-`

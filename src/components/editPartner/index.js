@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Container, FormGroup, FormItem} from './styles';
 import axios from 'axios';
 
-const Add = (props) => {
+const Edit = (props) => {
 
     const [form, setForm] = useState({
         active: true,
@@ -24,7 +24,7 @@ const Add = (props) => {
         managerName: null,
         imageUrl: null,
         bankName: null,
-        bankAccount: null,
+        bankAccount: '',
         bankBranch: null,
         prices: [],
         regionId: '1973c829-0f58-4846-815a-57d116b0cf81',
@@ -44,6 +44,17 @@ const Add = (props) => {
             .then(result => {
                 setForm({
                     ...form,
+                    bankAccount: result.data[0].bankAccount,
+                    bankBranch: result.data[0].bankBranch,
+                    number: result.data[0].number,
+                    postalCode: result.data[0].postalCode,
+                    street: result.data[0].street,
+                    state: result.data[0].state,
+                    district: result.data[0].district,
+                    complement: result.data[0].complement,
+                    country: result.data[0].country,
+                    city: result.data[0].city,
+                    taxNumber: result.data[0].taxNumber,
                     email: result.data[0].email,
                     name: result.data[0].name,
                     phone: result.data[0].phone,
@@ -55,7 +66,7 @@ const Add = (props) => {
         }
 
         fetchData();
-    },[props.id])
+    },[])
 
     const sendRequest = async() => {
 
@@ -87,7 +98,7 @@ const Add = (props) => {
                 </FormItem>
                 <FormItem>
                     <label>Número da conta:</label>
-                    <input value={form.bankNumber || ''} onChange={e=>setForm({...form, bankNumber: e.target.value})}></input>
+                    <input value={form.bankAccount || ''} onChange={e=>setForm({...form, bankAccount: e.target.value})}></input>
                 </FormItem>
                 <FormItem>
                     <label>Marca do banco:</label>
@@ -159,4 +170,4 @@ const Add = (props) => {
     )
 }
 
-export default Add;
+export default Edit;

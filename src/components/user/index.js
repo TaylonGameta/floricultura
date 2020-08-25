@@ -1,17 +1,17 @@
 import React,{useEffect, useState} from 'react';
-import {Container, Item, Image, Description, Dots, Redirect} from './styles';
+import {Container, Item, Image, Description, Dots} from './styles';
 
 import axios from 'axios';
 
-const Partner = () => {
+const User = () => {
 
-    const [partners, setPartners] = useState({})
+    const [users, setUsers] = useState({})
 
     const remove = async (id) => {
         if(window.confirm("Deseja mesmo excluir o Item?")){
             await axios({
                 method:"get",
-                url: `https://www.originalflores.com.br:8443/api/v1/partners/delete?id=${id}`,
+                url: `https://www.originalflores.com.br:8443/api/v1/accounts/delete?id=${id}`,
                 headers:{
                     Authorization: `Bearer ${localStorage.getItem("original-flores-token")}`
                 },
@@ -28,37 +28,36 @@ const Partner = () => {
         async function fetchData(){
             await axios({
                 method:"get",
-                url: "https://www.originalflores.com.br:8443/api/v1/partners/",
+                url: "https://www.originalflores.com.br:8443/api/v1/accounts/",
                 headers:{
                     Authorization: `Bearer ${localStorage.getItem("original-flores-token")}`
                 }
             })
             .then(result=>{
-                setPartners(result);
+                setUsers(result);
                 
             })
         } 
         fetchData();
 
-    },[partners])
+    },[users])
 
-    var listPartners
-    const items = partners.data
+    var listUsers
+    const items = users.data
 
     if(items){
-        listPartners = items.map((data, i)=>{
+        listUsers = items.map((data, i)=>{
             return(
                 <Item key={`partner${i}`}>
-                    <Image src={`${data.imageUrl}`}></Image>
+                    <Image src={`https://cdn.pixabay.com/photo/2018/04/18/18/56/user-3331256_960_720.png`}></Image>
                     <Description>
                         <h2>{data.name}</h2>
                         <p>{data.email || ''}</p>
-                        <p>{data.number || ''}</p>
-                        <p>{data.country}</p>
-                        <p>{data.state}</p>
+                        <p>{data.role || ''}</p>
+                        <p>{data.number}</p>
                     </Description>
                     <Dots>
-                        <button onClick={()=>window.location.hash = `/associados/edit?id=${data.id}`}><i className="fa fa-edit"></i></button>
+                        <button onClick={()=>window.location.hash = `/usuarios/edit?id=${data.id}`}><i className="fa fa-edit"></i></button>
                         <button onClick={()=>remove(data.id)}><i className="fa fa-trash"></i></button>
                     </Dots>
                 </Item>
@@ -68,13 +67,9 @@ const Partner = () => {
 
     return(
         <Container>
-            {listPartners ||
-            <Redirect>
-                <h2>Sem Autorização</h2>
-                <p><a href="/#/login">Clique aqui</a> para fazer o login</p>
-            </Redirect>}
+            {listUsers}
         </Container>
     )
 }
 
-export default Partner;
+export default User;

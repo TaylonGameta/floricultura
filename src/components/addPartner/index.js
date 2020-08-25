@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {Container, FormGroup, FormItem} from './styles';
 import axios from 'axios';
 
@@ -63,7 +63,7 @@ const Add = () => {
                 </FormItem>
                 <FormItem>
                     <label>Número da conta:</label>
-                    <input value={form.bankNumber || ''} onChange={e=>setForm({...form, bankNumber: e.target.value})}></input>
+                    <input value={form.bankAccount || ''} onChange={e=>setForm({...form, bankAccount: e.target.value})}></input>
                 </FormItem>
                 <FormItem>
                     <label>Marca do banco:</label>
