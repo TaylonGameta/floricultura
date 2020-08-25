@@ -1,25 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import GlobalStyles from './styles/GlobalStyles';
+import {HashRouter, Route, Switch} from 'react-router-dom';
+
+//templates
+import Login from './templates/login';
+import Home from './templates/home';
+import Associados from './templates/associados';
+import AddAssociados from './templates/associados/add';
+import EditAssociados from './templates/associados/edit';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <HashRouter>
+      <Switch>
+        <Route exact path="/login" component={Login}></Route>
+        <Route exact path="/" component={Associados}></Route>
+        <Route exact path="/associados" component={Associados}></Route>
+        <Route exact path="/associados/add" component={AddAssociados}></Route>
+        <Route exact path="/associados/edit" component={EditAssociados}></Route>
+      </Switch>
+      <GlobalStyles></GlobalStyles>
+    </HashRouter>
   );
 }
 
